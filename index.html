@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProRessources - Excel Templates, Training, Office & Computer Gear</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.2);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* ============ HEADER / NAVIGATION ============ */
+        .header {
+            background: var(--dark);
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links li a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-links li a.active {
+            color: var(--white);
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: calc(100vh - 72px - 80px);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.45s ease-out;
+        }
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .badge-excel {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .badge-formation {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .badge-ergo {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .badge-info {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+        .badge-amazon {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+
+        /* ============ GRID / CARDS ============ */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .card.excel-card::before {
+            background: linear-gradient(90deg, #2e7d32, #66bb6a);
+        }
+        .card.formation-card::before {
+            background: linear-gradient(90deg, #1565c0, #42a5f5);
+        }
+        .card.ergo-card::before {
+            background: linear-gradient(90deg, #e65100, #ff9800);
+        }
+        .card.info-card::before {
+            background: linear-gradient(90deg, #6a1b9a, #ba68c8);
+        }
+        .card.amazon-card::before {
+            background: linear-gradient(90deg, #ff9900, #ffbb33);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        .icon-green {
+            background: #e8f5e9;
+        }
+        .icon-blue {
+            background: #e3f2fd;
+        }
+        .icon-orange {
+            background: #fff3e0;
+        }
+        .icon-purple {
+            background: #f3e5f5;
+        }
+        .icon-yellow {
+            background: #fff8e1;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .card .price-tag {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        .price-free {
+            color: var(--success);
+        }
+        .price-amazon {
+            color: #f57f17;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        .rating span {
+            color: #999;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        /* ============ BUTTONS ============ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            letter-spacing: 0.3px;
+            width: 100%;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.35);
+        }
+        .btn-download:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.45);
+        }
+
+        .btn-amazon {
+            background: linear-gradient(135deg, #ff9900, #ffb84d);
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
+            border: 2px solid #e88e00;
+        }
+        .btn-amazon:hover {
+            background: linear-gradient(135deg, #e88e00, #ff9900);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            width: auto;
+            border-radius: 20px;
+        }
+
+        /* ============ FILTER TAGS ============ */
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .filter-tag {
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: var(--white);
+            border: 2px solid #ddd;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            color: #555;
+        }
+        .filter-tag:hover,
+        .filter-tag.active {
+            border-color: var(--secondary);
+            background: var(--secondary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ============ NOTIFICATION TOAST ============ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            z-index: 2000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.success {
+            background: #2e7d32;
+        }
+        .toast.info {
+            background: #1565c0;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 1.5rem 2rem;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        .footer .amazon-disclaimer {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                border-radius: 0 0 16px 16px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links li a {
+                width: 100%;
+                justify-content: center;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .main {
+                padding: 1rem;
+            }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .toast {
+                bottom: 15px;
+                right: 15px;
+                left: 15px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            .card {
+                padding: 1.3rem;
+            }
+            .btn {
+                font-size: 0.85rem;
+                padding: 10px 18px;
+            }
+        }
+
+        /* Excel file icon animation */
+        .file-ext {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('page-excel'); return false;">
+                <div class="logo-icon">📊</div>
+                ProRessources
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#" class="active" data-page="page-excel" onclick="showPage('page-excel'); closeMenu(); return false;">
+                        📊 Excel Templates
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="page-formation" onclick="showPage('page-formation'); closeMenu(); return false;">
+                        🎓 Training Packs
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="page-ergo" onclick="showPage('page-ergo'); closeMenu(); return false;">
+                        🪑 Office & Ergonomics
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-page="page-informatique" onclick="showPage('page-informatique'); closeMenu(); return false;">
+                        💻 Computer Equipment
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="main">
+
+        <!-- ==================== PAGE 1 : EXCEL TEMPLATES ==================== -->
+        <section id="page-excel" class="page active">
+            <div class="page-header">
+                <span class="badge badge-excel">📊 100% Free</span>
+                <h1>Professional Excel Templates</h1>
+                <p class="subtitle">Download ready-to-use Excel templates to manage your business, finances and projects. Compatible with Excel & Google Sheets.</p>
+            </div>
+
+            <div class="filter-tags" id="excelFilters">
+                <button class="filter-tag active" data-filter="all" onclick="filterExcel('all')">All</button>
+                <button class="filter-tag" data-filter="finance" onclick="filterExcel('finance')">💰 Finance</button>
+                <button class="filter-tag" data-filter="gestion" onclick="filterExcel('gestion')">📋 Management</button>
+                <button class="filter-tag" data-filter="rh" onclick="filterExcel('rh')">👥 HR</button>
+                <button class="filter-tag" data-filter="marketing" onclick="filterExcel('marketing')">📈 Marketing</button>
+            </div>
+
+            <div class="grid" id="excelGrid">
+                <!-- Template 1 -->
+                <div class="card excel-card" data-category="finance">
+                    <div class="card-icon icon-green">💰</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Monthly Family Budget</h3>
+                    <p>Track income and expenses with automatic categories, charts and overspending alerts.</p>
+                    <div class="rating">★★★★★ <span>(2.3k downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Monthly_Family_Budget', 'budget_familial.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="card excel-card" data-category="finance">
+                    <div class="card-icon icon-green">📊</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Financial Dashboard</h3>
+                    <p>Complete dashboard with KPIs, investment tracking, savings and annual financial goals.</p>
+                    <div class="rating">★★★★★ <span>(1.8k downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Financial_Dashboard', 'dashboard_financier.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="card excel-card" data-category="gestion">
+                    <div class="card-icon icon-green">📋</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Project Management - Gantt</h3>
+                    <p>Plan projects with Gantt chart, milestones, dependencies and resource tracking.</p>
+                    <div class="rating">★★★★☆ <span>(1.5k downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Project_Management_Gantt', 'gantt_projet.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="card excel-card" data-category="gestion">
+                    <div class="card-icon icon-green">📦</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Inventory & Stock</h3>
+                    <p>Manage stock with reorder alerts, barcodes and automatic valuation.</p>
+                    <div class="rating">★★★★★ <span>(1.2k downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Inventory_Stock', 'inventaire_stock.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 5 -->
+                <div class="card excel-card" data-category="rh">
+                    <div class="card-icon icon-green">👥</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Leave & Absence Tracker</h3>
+                    <p>Plan team leaves with integrated calendar and automatic balance calculation.</p>
+                    <div class="rating">★★★★☆ <span>(980 downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Leave_Absence_Tracker', 'conges_absences.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 6 -->
+                <div class="card excel-card" data-category="rh">
+                    <div class="card-icon icon-green">📝</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Payroll & Overtime</h3>
+                    <p>Calculate salaries, overtime, bonuses and social contributions automatically.</p>
+                    <div class="rating">★★★★★ <span>(750 downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Payroll_Overtime', 'paie_heures.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 7 -->
+                <div class="card excel-card" data-category="marketing">
+                    <div class="card-icon icon-green">📈</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Marketing Analysis & ROI</h3>
+                    <p>Track marketing campaigns, ROI calculators, acquisition costs and conversion.</p>
+                    <div class="rating">★★★★☆ <span>(620 downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Marketing_Analysis_ROI', 'marketing_roi.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 8 -->
+                <div class="card excel-card" data-category="marketing">
+                    <div class="card-icon icon-green">🎯</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Editorial & Social Media Calendar</h3>
+                    <p>Plan your editorial calendar, track posts and analyze engagement.</p>
+                    <div class="rating">★★★★★ <span>(540 downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Editorial_Social_Calendar', 'editorial_rs.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+
+                <!-- Template 9 -->
+                <div class="card excel-card" data-category="gestion">
+                    <div class="card-icon icon-green">📅</div>
+                    <div><span class="file-ext">.xlsx</span></div>
+                    <h3>Weekly Planner</h3>
+                    <p>Organize your week with time blocks, priorities and work time tracking.</p>
+                    <div class="rating">★★★★☆ <span>(480 downloads)</span></div>
+                    <span class="price-tag price-free">Free</span>
+                    <button class="btn btn-download" onclick="downloadTemplate('Weekly_Planner', 'planning_hebdo.csv')">
+                        ⬇️ Download
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PAGE 2 : TRAINING PACKS ==================== -->
+        <section id="page-formation" class="page">
+            <div class="page-header">
+                <span class="badge badge-formation">🎓 Premium Training</span>
+                <h1>Professional Training Packs</h1>
+                <p class="subtitle">Develop your skills with our recommended training packs. Available on Amazon as a partner.</p>
+                <span class="badge badge-amazon" style="margin-top:10px;">🛒 Amazon Partner</span>
+            </div>
+
+            <div class="grid">
+                <!-- Formation 1 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">📚</div>
+                    <h3>Advanced Excel Pack - Complete Mastery</h3>
+                    <p>Full training: pivot tables, VBA macros, Power Query, advanced formulas. Become an expert.</p>
+                    <div class="rating">★★★★★ <span>(4.8/5 - 1.2k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+excel+avance&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 2 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">💻</div>
+                    <h3>Web Development Pack - HTML/CSS/JS</h3>
+                    <p>Learn coding from scratch: HTML5, CSS3, JavaScript, responsive design. Practical projects included.</p>
+                    <div class="rating">★★★★★ <span>(4.7/5 - 890 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+developpement+web+html+css+javascript&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 3 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">📊</div>
+                    <h3>Data Analysis Pack - Python & Power BI</h3>
+                    <p>Data analysis with Python, Pandas, Power BI. Data visualization and business intelligence.</p>
+                    <div class="rating">★★★★★ <span>(4.9/5 - 1.5k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+data+analyse+python+power+bi&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 4 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">🗣️</div>
+                    <h3>Communication & Leadership Pack</h3>
+                    <p>Improve public speaking, team management and leadership. Professional communication techniques.</p>
+                    <div class="rating">★★★★☆ <span>(4.6/5 - 720 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+communication+leadership+management&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 5 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">🎨</div>
+                    <h3>Graphic Design Pack - Adobe Suite</h3>
+                    <p>Master Photoshop, Illustrator, InDesign. Create logos, posters and professional visuals.</p>
+                    <div class="rating">★★★★★ <span>(4.8/5 - 1.1k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+design+graphique+photoshop+illustrator&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 6 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">🤖</div>
+                    <h3>Artificial Intelligence & ChatGPT Pack</h3>
+                    <p>Discover generative AI, prompt engineering and business applications of ChatGPT and other AI tools.</p>
+                    <div class="rating">★★★★★ <span>(4.9/5 - 2k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+intelligence+artificielle+chatgpt&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 7 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">💼</div>
+                    <h3>Entrepreneurship & Business Plan Pack</h3>
+                    <p>Start your business: business plan, market research, financing and growth strategy.</p>
+                    <div class="rating">★★★★☆ <span>(4.5/5 - 680 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+entrepreneuriat+business+plan&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Formation 8 -->
+                <div class="card formation-card amazon-card">
+                    <div class="card-icon icon-blue">🌍</div>
+                    <h3>Foreign Languages Pack - Business English</h3>
+                    <p>Improve professional English: business English, meetings, presentations and negotiations.</p>
+                    <div class="rating">★★★★☆ <span>(4.6/5 - 950 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=formation+anglais+professionnel+business&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PAGE 3 : OFFICE & ERGONOMICS ==================== -->
+        <section id="page-ergo" class="page">
+            <div class="page-header">
+                <span class="badge badge-ergo">🪑 Ergonomics & Comfort</span>
+                <h1>Office & Ergonomic Equipment</h1>
+                <p class="subtitle">Improve your work comfort with our selection of ergonomic equipment and office supplies.</p>
+                <span class="badge badge-amazon" style="margin-top:10px;">🛒 Amazon Partner</span>
+            </div>
+
+            <div class="grid">
+                <!-- Produit 1 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">🪑</div>
+                    <h3>Ergonomic Office Chair</h3>
+                    <p>Office chair with lumbar support, adjustable armrests and breathable backrest. Optimal comfort.</p>
+                    <div class="rating">★★★★★ <span>(4.7/5 - 3.2k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=chaise+ergonomique+bureau&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">🖥️</div>
+                    <h3>Adjustable Monitor Stand</h3>
+                    <p>Height-adjustable monitor stand for optimal posture. Compatible with 13-32 inch screens.</p>
+                    <div class="rating">★★★★★ <span>(4.6/5 - 2.1k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=support+ecran+reglable+ergonomique&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">⌨️</div>
+                    <h3>Wireless Ergonomic Keyboard</h3>
+                    <p>Ergonomic keyboard with palm rest, Bluetooth and USB connection. Reduces hand fatigue.</p>
+                    <div class="rating">★★★★★ <span>(4.5/5 - 1.8k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=clavier+ergonomique+sans+fil&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">🖱️</div>
+                    <h3>Vertical Ergonomic Mouse</h3>
+                    <p>Wireless vertical mouse that reduces wrist strain. Ideal for preventing RSI.</p>
+                    <div class="rating">★★★★☆ <span>(4.4/5 - 1.5k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=souris+verticale+ergonomique&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 5 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">📐</div>
+                    <h3>Sit-Stand Adjustable Desk</h3>
+                    <p>Electric height-adjustable desk. Alternate between sitting and standing for your health.</p>
+                    <div class="rating">★★★★★ <span>(4.8/5 - 2.8k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=bureau+assis+debout+reglable&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">💡</div>
+                    <h3>LED Desk Lamp with Anti-Blue Light</h3>
+                    <p>Desk lamp with adjustable brightness, eye protection and integrated USB port.</p>
+                    <div class="rating">★★★★☆ <span>(4.5/5 - 1.2k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=lampe+bureau+led+protection+yeux&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 7 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">📁</div>
+                    <h3>Complete Desk Organizer</h3>
+                    <p>Desk organization set: pen holder, sorter, document tray and matching accessories.</p>
+                    <div class="rating">★★★★☆ <span>(4.3/5 - 890 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=organisateur+bureau+accessoires&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 8 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">🦶</div>
+                    <h3>Ergonomic Footrest</h3>
+                    <p>Inclined footrest with non-slip surface. Improves blood circulation when sitting.</p>
+                    <div class="rating">★★★★☆ <span>(4.4/5 - 760 reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=repose+pieds+ergonomique+bureau&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 9 -->
+                <div class="card ergo-card amazon-card">
+                    <div class="card-icon icon-orange">🎧</div>
+                    <h3>Professional Noise-Cancelling Headset</h3>
+                    <p>Headset with active noise cancellation for concentration. Built-in microphone for online meetings.</p>
+                    <div class="rating">★★★★★ <span>(4.7/5 - 4k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=casque+anti+bruit+professionnel+bureau&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PAGE 4 : COMPUTER EQUIPMENT ==================== -->
+        <section id="page-informatique" class="page">
+            <div class="page-header">
+                <span class="badge badge-info">💻 High-Tech</span>
+                <h1>Computer Equipment</h1>
+                <p class="subtitle">The best computer components and peripherals to boost your productivity.</p>
+                <span class="badge badge-amazon" style="margin-top:10px;">🛒 Amazon Partner</span>
+            </div>
+
+            <div class="grid">
+                <!-- Produit 1 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">💻</div>
+                    <h3>Ultrabook Laptop</h3>
+                    <p>Lightweight, powerful and fast. Perfect for mobile work, with SSD and long battery life.</p>
+                    <div class="rating">★★★★★ <span>(4.8/5 - 5.2k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=ordinateur+portable+ultrabook&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">🖥️</div>
+                    <h3>27" 4K UHD Monitor</h3>
+                    <p>4K UHD monitor with IPS panel, accurate colors and low blue light. Ideal for creation.</p>
+                    <div class="rating">★★★★★ <span>(4.7/5 - 2.8k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=ecran+pc+27+pouces+4k+uhd&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">⌨️</div>
+                    <h3>Mechanical Gaming Keyboard</h3>
+                    <p>RGB backlit mechanical keyboard, durable switches and fast response. Superior typing comfort.</p>
+                    <div class="rating">★★★★★ <span>(4.9/5 - 6.1k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=clavier+mecanique+gamer+rgb&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">🖱️</div>
+                    <h3>High-Precision Gaming Mouse</h3>
+                    <p>16000 DPI optical mouse, programmable buttons, adjustable weight and ergonomic design.</p>
+                    <div class="rating">★★★★★ <span>(4.8/5 - 4.5k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=souris+gaming+haute+precision&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 5 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">💾</div>
+                    <h3>1TB External SSD</h3>
+                    <p>Ultra-fast USB 3.2 external SSD, compact and robust. Ideal for backups and transfers.</p>
+                    <div class="rating">★★★★★ <span>(4.7/5 - 3.3k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=ssd+externe+1+to+usb+c&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">📷</div>
+                    <h3>Full HD 1080p Webcam</h3>
+                    <p>Webcam with built-in microphone, autofocus and light correction. Perfect for video conferencing.</p>
+                    <div class="rating">★★★★☆ <span>(4.4/5 - 2.1k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=webcam+full+hd+1080p+micro&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 7 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">🔌</div>
+                    <h3>7-in-1 USB-C Hub</h3>
+                    <p>USB-C hub with 4K HDMI, USB 3.0, SD/microSD reader and Ethernet port. Expand your connections.</p>
+                    <div class="rating">★★★★☆ <span>(4.5/5 - 1.9k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=hub+usb+c+7+en+1+hdmi+ethernet&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 8 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">📡</div>
+                    <h3>Wi-Fi 6 Router</h3>
+                    <p>Dual-band Wi-Fi 6 router, ultra-fast speed, extended coverage and enhanced security.</p>
+                    <div class="rating">★★★★★ <span>(4.6/5 - 2.7k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=routeur+wifi+6&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+
+                <!-- Produit 9 -->
+                <div class="card info-card amazon-card">
+                    <div class="card-icon icon-purple">💾</div>
+                    <h3>128GB USB Flash Drive</h3>
+                    <p>High-speed USB 3.0 flash drive, compact and reliable. Perfect for portable storage.</p>
+                    <div class="rating">★★★★☆ <span>(4.3/5 - 1.5k reviews)</span></div>
+                    <span class="price-tag price-amazon">See on Amazon</span>
+                    <a href="https://www.amazon.fr/s?k=cle+usb+128+go+usb+3.0&tag=proressources-21" target="_blank" rel="noopener" class="btn btn-amazon">
+                        🛒 See on Amazon
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <p>© 2025 ProRessources — All rights reserved. | <a href="#">Legal Notice</a> | <a href="#">Contact</a></p>
+        <p class="amazon-disclaimer">As an Amazon Associate, we earn from qualifying purchases. Amazon links are affiliate links.</p>
+    </footer>
+
+    <!-- ============ TOAST NOTIFICATION ============ -->
+    <div class="toast" id="toast">
+        <span id="toastIcon">✅</span>
+        <span id="toastMessage">Download started!</span>
+    </div>
+
+    <script>
+        // ============ NAVIGATION ============
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Show the selected page
+            const page = document.getElementById(pageId);
+            if (page) page.classList.add('active');
+
+            // Update nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Close mobile menu
+            closeMenu();
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.remove('open');
+        }
+
+        // Close menu on outside click
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            if (nav.classList.contains('open') && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('open');
+            }
+        });
+
+        // ============ TOAST SYSTEM ============
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toastMessage.textContent = message;
+            toast.className = 'toast';
+
+            if (type === 'success') {
+                toast.classList.add('success');
+                toastIcon.textContent = '✅';
+            } else if (type === 'info') {
+                toast.classList.add('info');
+                toastIcon.textContent = 'ℹ️';
+            } else {
+                toastIcon.textContent = '📢';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ============ DOWNLOAD TEMPLATES ============
+        function downloadTemplate(name, csvContent) {
+            // Create a simple CSV file with sample data
+            const csvData = generateCSVData(name);
+            const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = name + '.xlsx.csv'; // .csv so it opens in Excel
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast(`📊 "${name}" downloaded successfully!`, 'success');
+        }
+
+        function generateCSVData(templateName) {
+            let csv = '';
+            const names = {
+                'Monthly_Family_Budget': 'Category;January;February;March;April;May;June\nSalary;2500;2500;2500;2500;2500;2500\nRent;800;800;800;800;800;800\nGroceries;350;320;380;300;340;310\nTransport;120;110;130;115;125;105\nLeisure;150;180;120;200;160;140\nSavings;300;300;300;300;300;300\n',
+                'Financial_Dashboard': 'Indicator;Value;Goal;Status\nRevenue;45000;50000;In progress\nTotal Expenses;28000;30000;OK\nMonthly Savings;2000;2500;Needs improvement\nMarketing ROI;4.5;5.0;In progress\nGross Margin;32%;35%;Needs improvement\n',
+                'Project_Management_Gantt': 'Task;Start;End;Progress;Responsible\nNeeds analysis;01/01/2025;05/01/2025;100%;John\nDesign;06/01/2025;15/01/2025;80%;Mary\nDevelopment;16/01/2025;30/01/2025;60%;Peter\nTesting;01/02/2025;10/02/2025;30%;Sophie\nDeployment;11/02/2025;15/02/2025;0%;Team\n',
+                'Inventory_Stock': 'Product;Reference;Quantity;Reorder Threshold;Unit Price;Total Value\nProduct A;REF001;150;50;12.50;1875.00\nProduct B;REF002;25;30;8.90;222.50\nProduct C;REF003;75;40;15.00;1125.00\nProduct D;REF004;200;100;5.20;1040.00\n',
+                'Leave_Absence_Tracker': 'Employee;Type;Start;End;Days;Status\nJohn Doe;Leave;10/01/2025;15/01/2025;5;Approved\nMary Smith;Sick;05/02/2025;08/02/2025;3;Approved\nPeter Brown;Leave;20/02/2025;25/02/2025;5;Pending\n',
+                'Payroll_Overtime': 'Employee;Base Salary;Overtime Hours;Overtime Rate;Bonus;Total\nJohn Doe;2400;8;25%;150;2790\nMary Smith;2200;5;25%;100;2475\nPeter Brown;2600;10;50%;200;3250\n',
+                'Marketing_Analysis_ROI': 'Campaign;Budget;Impressions;Clicks;Conversions;ROI\nGoogle Ads Campaign;500;50000;2500;75;4.2\nFacebook Campaign;300;35000;1800;45;3.8\nEmail Campaign;150;20000;1200;60;6.5\n',
+                'Editorial_Social_Calendar': 'Date;Platform;Content Type;Topic;Status\n01/01/2025;LinkedIn;Article;2025 Trends;Planned\n03/01/2025;Instagram;Story;Updates;Published\n05/01/2025;Twitter;Tweet;Quick tip;Planned\n',
+                'Weekly_Planner': 'Day;8am-10am;10am-12pm;12pm-2pm;2pm-4pm;4pm-6pm\nMonday;Team meeting;Project A;Break;Project B;Emails\nTuesday;Project A;Training;Break;Project A;Client meeting\nWednesday;Project B;Analysis;Break;Project B;Report\n'
+            };
+            csv = names[templateName] || 'Data;Values\nExample;100\n';
+            return csv;
+        }
+
+        // ============ FILTER EXCEL TEMPLATES ============
+        function filterExcel(category) {
+            // Update filter buttons
+            document.querySelectorAll('#excelFilters .filter-tag').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter cards
+            const cards = document.querySelectorAll('#excelGrid .card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.3s ease-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ============ KEYBOARD NAVIGATION ============
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+1 for Excel, Ctrl+2 for Training, Ctrl+3 for Office, Ctrl+4 for Computer
+            if (e.ctrlKey && e.key === '1') {
+                e.preventDefault();
+                showPage('page-excel');
+            } else if (e.ctrlKey && e.key === '2') {
+                e.preventDefault();
+                showPage('page-formation');
+            } else if (e.ctrlKey && e.key === '3') {
+                e.preventDefault();
+                showPage('page-ergo');
+            } else if (e.ctrlKey && e.key === '4') {
+                e.preventDefault();
+                showPage('page-informatique');
+            }
+        });
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📊 ProRessources - Site loaded successfully!');
+            console.log('⌨️  Shortcuts: Ctrl+1 (Excel), Ctrl+2 (Training), Ctrl+3 (Office), Ctrl+4 (Computer)');
+        });
+    </script>
+</body>
+</html>
